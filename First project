@@ -1,0 +1,15 @@
+ First Project: Suspicious Login (Practice)
+ 25 August 2025   Level: Beginner  
+        Situation
+ I pretended there was a suspicious login attempt on a computer.
+        Steps I Took
+ I imagined there were 3 wrong password attempts.  
+ Then the login was successful.  
+ I wrote down what this might mean.  
+
+        Result
+This could be a brute-force attack.  
+
+If this were real, I would:  
+- Reset the password  
+- Alert the security team
