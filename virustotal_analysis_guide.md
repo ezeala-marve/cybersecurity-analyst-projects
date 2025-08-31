@@ -1,107 +1,179 @@
 # VirusTotal Analysis Guide: From Basics to Threat Intelligence
 
 ## Project Overview
-This guide breaks down the process of analyzing files, URLs, and IP addresses on VirusTotal. It moves beyond the basic detection score to interpret contextual clues, turning raw data into actionable threat intelligence. A key lesson is that a high detection score alone is not enough to declare a file malicious—context is everything.
+This guide demonstrates practical threat intelligence analysis using VirusTotal, moving beyond basic detection scores to interpret contextual clues and turn raw data into actionable intelligence. We analyze malicious and benign indicators across IP addresses, file hashes, and URLs, highlighting key patterns and limitations of automated scanning tools.
 
----
+## Table of Contents
+1. [Analyst's Framework](#analysts-framework)
+2. [IP Address Analysis](#ip-address-analysis)
+3. [File Hash Analysis](#file-hash-analysis)
+4. [URL Analysis](#url-analysis)
+5. [Key Findings & Patterns](#key-findings--patterns)
+6. [Limitations of VirusTotal](#limitations-of-virustotal)
+7. [Conclusion](#conclusion)
 
-## The Analyst's Framework: What to Look For
+## Analyst's Framework
 
 ### For Files (Hashes)
-1.  **Detection Ratio:** The number of engines flagging the file. A high ratio (e.g., 50+/70) is a strong indicator of malice. A low ratio requires deeper investigation.
-2.  **File Details:**
-    *   **Names:** Generic names (e.g., `f.exe`) are suspicious.
-    *   **Type:** Executables (`PE32`, `PE64`) are higher risk.
-    *   **Signing:** Legitimate software is often signed by trusted companies (Microsoft, Adobe). Unsigned files are a red flag.
-    *   **Magic:** Confirms the file type. Helps verify if a file is disguised (e.g., an EXE renamed to a PDF).
-3.  **Behavior & Relations:**
-    *   **Contacted Domains/IPs:** Calls to unknown or newly registered domains indicate C2 activity.
-    *   **Dropped Files:** Shows what other files the malware creates or downloads.
-4.  **Community:** Comments from other analysts can provide crucial context (e.g., "Ransomware," "Part of APT32").
+1. **Detection Ratio:** Number of engines flagging the file. High ratio (50+/70) indicates malice; low ratio requires deeper investigation.
+2. **File Details:**
+   - **Names:** Generic names (e.g., `f.exe`) are suspicious
+   - **Type:** Executables (`PE32`, `PE64`) are higher risk
+   - **Signing:** Legitimate software is often signed by trusted companies
+   - **Magic:** Confirms file type and helps verify disguises
+3. **Behavior & Relations:**
+   - **Contacted Domains/IPs:** Calls to unknown domains indicate C2 activity
+   - **Dropped Files:** Shows what other files the malware creates/downloads
+4. **Community:** Comments from analysts provide crucial context (e.g., "Ransomware")
 
 ### For URLs
-1.  **Detection Ratio:** Similar to files. A clean score (0/90+) doesn't guarantee safety.
-2.  **Details Tab:**
-    *   **Title:** Often mimics legitimate services (e.g., "Microsoft Login").
-    *   **Redirects:** The final destination after all hops is often the truly malicious site.
-3.  **Relations Tab:**
-    *   **Downloaded Files:** The most important feature. A "clean" URL serving a malicious file is a major red flag.
-    *   **Contacted URLs:** Shows other potentially malicious sites it links to.
-4.  **Community:** Tags like `phishing`, `malware`, `scam` are critical indicators.
+1. **Detection Ratio:** Clean score (0/90+) doesn't guarantee safety
+2. **Details Tab:**
+   - **Title:** Often mimics legitimate services (e.g., "Microsoft Login")
+   - **Redirects:** Final destination often reveals true malicious site
+3. **Relations Tab:**
+   - **Downloaded Files:** Clean URL serving malicious file is major red flag
+   - **Contacted URLs:** Shows other potentially malicious sites
+4. **Community:** Tags like `phishing`, `malware`, `scam` are critical indicators
 
 ### For IP Addresses
-1.  **Reputation Score:** The number of vendors flagging it. Even 1/90 can be significant.
-2.  **Relations Tab:**
-    *   **Communicating Files:** The smoking gun. Many malicious files talking to one IP means it's likely a C2 server.
-    *   **Historical DNS:** Shows which domains have resolved to this IP, linking it to malicious sites.
-    *   **URLs:** Lists the malicious URLs hosted on this IP.
-3.  **Geo-Location & ASN:** Often registered in privacy-friendly countries or with obscure hosting providers.
+1. **Reputation Score:** Number of vendors flagging it (even 1/90 can be significant)
+2. **Relations Tab:**
+   - **Communicating Files:** Many malicious files talking to one IP = likely C2 server
+   - **Historical DNS:** Shows domains resolved to this IP
+   - **URLs:** Malicious URLs hosted on this IP
+3. **Geo-Location & ASN:** Often in privacy-friendly countries or obscure hosting providers
 
----
+## IP Address Analysis
 
-## Practical Analysis: Applying the Framework
+### Malicious IP: 185.220.101.134
+![Malicious IP Analysis](https://github.com/Major241/cyber-portfolio/blob/main/images/malicious_ip.png?raw=true)
 
-### 1. Critical Analysis: When a High Score Does Not Mean Malicious
+**Findings:**
+- **Reputation Score:** 11/94 vendors flagged as malicious
+- **Network:** AS 60729 (Germany)
+- **Communicating Files:** 58+ malicious files
+- **Threat Type:** Ransomware (Win32/Filecoder)
 
-**Hash:** `44d88612fea8a8f36de82e1278abb02f` (MD5) - The EICAR Test File
+**Verdict: 🚨 MALICIOUS - Command & Control Server**
+
+**Analysis:** This IP exhibits classic C2 server characteristics with multiple confirmed malicious connections. The high number of communicating malware files (58+) and specific ransomware associations indicate active threat infrastructure.
+
+### Benign IP: 8.8.8.8 (Google DNS)
+![Benign IP Analysis](https://github.com/Major241/cyber-portfolio/blob/main/images/benign_ip.png?raw=true)
+
+**Findings:**
+- **Reputation Score:** 0/94 vendors flagged as malicious
+- **Network:** AS 15169 (Google LLC, USA)
+- **Communicating Files:** 1,000,000+ legitimate files
+- **Purpose:** Google Public DNS server
+
+**Verdict: ✅ CLEAN - Essential Internet Infrastructure**
+
+**Analysis:** This IP demonstrates legitimate global infrastructure patterns. The massive scale of communications represents normal DNS query traffic rather than malicious activity.
+
+## File Hash Analysis
+
+### Malicious File: Mimikatz Trojan
+**SHA-256:** `fb55414848281f804858ce188c3dc659d129e283bd62d58d34f6e6f568feab37`
+![File Analysis](https://github.com/Major241/cyber-portfolio/blob/main/images/malicious_file.png?raw=true)
+
+**Findings:**
+- **Detection Ratio:** 63/72 vendors flagged as malicious
+- **File Type:** Win32 EXE
+- **File Name:** mimikatz.exe
+- **Signing Status:** Not signed
+- **Network Activity:** 9 contacted domains, 100+ IPs
+- **Community Tags:** #malware #mimikatz
+
+**Verdict: 🚨 MALICIOUS - Credential Access Tool**
+
+**Analysis:** This file represents a credential-theft tool with overwhelming vendor consensus about its malicious nature. The lack of digital signature and extensive network communication patterns indicate advanced credential harvesting capabilities.
+
+### EICAR Test File: Benign but Detected
+**MD5:** `44d88612fea8a8f36de82e1278abb02f`
+![EICAR Analysis](https://github.com/Major241/cyber-portfolio/blob/main/images/EICAR.png?raw=true)
 
 | What to Look For | Finding | Analysis & Lesson |
 | :--- | :--- | :--- |
-| **Detection Ratio** | 66/69 | **Finding:** Extremely High Detection Rate. <br> **Lesson:** This is the core lesson: **a high score does not automatically mean malware**. This file is designed to be detected. |
-| **File Details** | Name: `eicar.com`<br>Type: `text/plain` | **Finding:** It's a simple text file, not an executable. <br> **Lesson:** The "Details" tab provides crucial context. A real executable with this score would be malicious. A text file is a clear anomaly. |
-| **Behavior** | **No network connections.**<br>**No files dropped.** | **Finding:** The file is inert and has no malicious capabilities. <br> **Lesson:** The absence of behavioral indicators is a major clue that this is not a traditional threat. |
-| **Community** | Tags: `test`, `eicar` | **Finding:** The community identifies it as a test file. <br> **Lesson:** Crowd-sourced context from other analysts is invaluable for understanding intent. |
+| **Detection Ratio** | 62/68 | **Finding:** Extremely High Detection Rate. <br> **Lesson:** High score doesn't automatically mean malware - this file is designed to be detected. |
+| **File Details** | Name: `eicar.com`<br>Type: `text/plain` | **Finding:** Simple text file, not executable. <br> **Lesson:** The "Details" tab provides crucial context. |
+| **Behavior** | **No network connections.**<br>**No files dropped.** | **Finding:** File is inert. <br> **Lesson:** Absence of behavioral indicators shows it's not a traditional threat. |
+| **Community** | Tags: `test`, `eicar` | **Finding:** Community identifies as test file. <br> **Lesson:** Crowd-sourced context is invaluable. |
 
-**Verdict: 🟡 BENIGN TEST FILE.**
-This is the EICAR Anti-Virus Test File, a harmless text string used globally to verify antivirus functionality. Its sole purpose is to trigger detection software.
+**Verdict: 🟡 BENIGN TEST FILE**
+This is the EICAR Anti-Virus Test File, a harmless text string used globally to verify antivirus functionality.
 
-**Key Takeaway:** This is the perfect example of why VirusTotal analysis cannot be automated. An analyst must synthesize the **high detection score** with the **benign file details** and **lack of behavior** to understand the true story. Blindly trusting the score would lead to a false positive. This demonstrates the critical thinking required in cybersecurity.
+## URL Analysis
+**URL:** http[:]//x4z9arb[.]cn/4712/
+![URL Analysis](https://github.com/Major241/cyber-portfolio/blob/main/images/malicious_url.png?raw=true)
 
-### 2. Analysis of a Truly Malicious File (Trojan)
+**Findings:**
+- **Detection Ratio:** 4/97 vendors flagged as malicious
+- **Final URL:** No redirects (same as initial)
+- **Relations:** No downloaded files
+- **Vendor Classification:** Malicious (alphaMountain.ai)
 
-**Hash:** `fb55414848281f804858ce188c3dc659d129e283bd62d58d34f6e6f568feab37` (SHA-256)
+**Verdict: 🚨 SUSPICIOUS - Likely Phishing Landing Page**
 
-| What to Look For | Finding | Analysis |
-| :--- | :--- | :--- |
-| **Detection Ratio** | 63/72 | **High detection rate.** A clear majority of engines flag this file as malicious. |
-| **File Details** | Names: `KMSpico_setup.exe`<br>Type: `PE32`<br>**Unsigned** | **Suspicious attributes.** Masquerades as legitimate software ("KMSpico"), is an executable, and lacks a valid digital signature. |
-| **Behavior** | **Drops multiple files**<br>**Contacts IPs** | **Malicious activity.** The file installs other software and connects to external servers, confirming its payload delivery and C2 capabilities. |
-| **Community** | Comments: `Trojan`, `Riskware` | **Context provided.** The community confirms the file is unwanted and malicious. |
+**Analysis:** This URL shows limited but significant detection coverage. The lack of redirects indicates a direct malicious landing page, likely designed for credential phishing.
 
-**Verdict: 🚨 MALICIOUS.** The high detection rate, combined with suspicious file details (spoofed name, no signature) and confirmed malicious behavior (dropping files, network calls), provides irrefutable evidence that this is a Trojan. This contrasts sharply with the EICAR file.
+## Key Findings & Patterns
 
-### 4. Analysis of a Malicious IP (C2 Server)
+### Malicious Pattern Indicators:
+1. **High-but-Not-Unanimous Detection:** Many threats show 50-70% detection rates
+2. **Suspicious Network Patterns:** Callouts to unknown domains/IPs
+3. **File Characteristics:** Unsigned executables with generic names
+4. **Community Consensus:** Security vendor and community tags align
 
-**IP Address:** `185.220.101.134`
+### Benign Pattern Indicators:
+1. **Zero Detection Scores:** Essential infrastructure shows 0/94 ratings
+2. **Massive Legitimate Scale:** Millions of clean communications
+3. **Verified Ownership:** Clear corporate ownership
+4. **Expected Behavior:** Normal network patterns for claimed purpose
 
-| What to Look For | Finding | Analysis |
-| :--- | :--- | :--- |
-| **Reputation Score** | 11/94 | **Significantly malicious.** A solid number of vendors have flagged this IP. |
-| **Relations Tab** | **58 Communicating Files**<br>**Files detected as Malicious** | **The smoking gun.** This IP is a central hub (C2 server) for managing infections. The volume of connections confirms its role. |
-| **Historical DNS** | Various suspicious domains | Further links the IP to malicious activity. |
+## Limitations of VirusTotal
 
-**Verdict: 🚨 MALICIOUS.** This IP is a **Command & Control (C2) server**. Any network traffic to this IP is a critical indicator of compromise.
+1. **Reactive Nature:** 
+   - Only analyzes previously submitted samples
+   - Cannot detect truly novel (zero-day) threats
+   - Requires someone to first encounter and submit the threat
+
+2. **Context Blindness:**
+   - Cannot understand organizational context
+   - May flag legitimate tools used maliciously
+   - Cannot assess internal network relevance
+
+3. **Evasion Techniques:**
+   - Advanced threats use polymorphism to avoid hash-based detection
+   - Time-based delays can avoid initial detection
+   - Environmental awareness can bypass automated analysis
+
+4. **False Sense of Security:**
+   - Clean scans don't guarantee safety
+   - Low detection rates may indicate novel threats
+   - Requires expert interpretation of results
+
+5. **Privacy Considerations:**
+   - Submitting internal files exposes organizational data
+   - Requires careful handling of sensitive information
 
 ---
-## Important Note: The Dynamic Nature of Threat Intelligence
 
-A critical concept to understand is that VirusTotal reports are **not static**. The detection scores and details can change over time. This happens because:
+> ⚠️ **Note:** VirusTotal analyses are subject to change over time as security vendors update their detection engines and threat intelligence feeds. Always re-scan if you need the most up-to-date results.
 
-*   **Antivirus vendors constantly update their detection algorithms.**
-*   **A previously undetected "zero-day" malware can be identified and flagged hours or days after its first submission.**
-*   **False positives (legitimate files mistakenly flagged) are often corrected.**
+## Conclusion
 
-**Therefore, the analysis in this guide reflect a snapshot in time.** The verdicts are based on the evidence available at the time of writing. This dynamic nature is why continuous monitoring and re-assessment are vital in cybersecurity.
+VirusTotal serves as a valuable initial assessment tool but should not be relied upon as a complete security solution. Effective threat intelligence requires:
 
-*   **Date of Analysis:** August 28, 2025
+1. **Contextual Analysis:** Understanding what's normal for your environment
+2. **Multi-Layered Defense:** Combining automated tools with human expertise
+3. **Continuous Monitoring:** Recognizing that threat intelligence has a shelf life
+4. **Correlation:** Combining multiple indicators for confident assessment
 
-## Conclusion & Limitations of VirusTotal
+The most effective security posture uses VirusTotal as one component of a comprehensive threat intelligence strategy, complemented by network monitoring, endpoint detection, and human analysis.
 
-VirusTotal is a powerful tool for analyzing known threats, but it has critical limitations:
+**Date of Analysis:** August 29, 2025  
+**Tools Used:** VirusTotal, Command-line utilities, Threat intelligence frameworks
 
-*   **Reactive, Not Proactive:** VirusTotal's power comes from its database of previously analyzed files and URLs. It is inherently reactive.
-*   **The Zero-Day Blind Spot:** Its greatest weakness is against **zero-day attacks** and **targeted malware**. If a piece of malware is brand new and has never been seen by any security vendor before (a "zero-day"), it will not be in VirusTotal's database. Submitting it is the only way to get a report, which means the damage may already be done.
-*   **Unfamiliar Hashes are Useless:** Hashing a unique file from your system (like a personal document) will return no results. VirusTotal cannot provide insight into files it has never seen, making it useless for determining if a unique file is a targeted threat.
-*   **Context is King:** As demonstrated by the EICAR file, a high detection score must be interpreted with other evidence. Without context, analysts can easily generate false positives.
-
-**The Analyst's Mindset:** Therefore, a clean VirusTotal scan should never be interpreted as a guarantee of safety. It simply means the file is not *known* to be malicious. Advanced threat hunting requires behavioral analysis, network monitoring, and other tools to catch what VirusTotal cannot.
+---
