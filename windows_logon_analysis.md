@@ -56,7 +56,7 @@ This event is related to credential management, like a password being changed or
 - **The Finding:** The log confirmed that the task `MicrosoftsecurityHealth` was executed by the SYSTEM account.
 - **The Limitation:** On this system, the log event did not contain the detailed `Actions` field showing the command-line arguments. This is a common real-world logging issue.
 
-![Screenshot of Event ID 200](https://github.com/Major241/cyber-portfolio/blob/main/images/event_id_200_execution.png.png?raw=true)
+![Screenshot of Event ID 200](https://github.com/Major241/cyber-portfolio/blob/main/images/event_id_200_execution.png?raw=true)
 *Caption: A scheduled task execution (200) was logged, but the critical command arguments were not captured in this view.*
 
 #### 2. Correlating with Task Scheduler
