@@ -60,7 +60,7 @@ This guide demonstrates practical threat intelligence analysis using VirusTotal,
 **Analysis:** This IP exhibits classic C2 server characteristics with multiple confirmed malicious connections. The high number of communicating malware files (58+) and specific ransomware associations indicate active threat infrastructure.
 
 ### Benign IP: 8.8.8.8 (Google DNS)
-![Benign IP Analysis](https://github.com/Major241/cyber-portfolio/blob/main/images/benign_ip.png?raw=true)
+![Benign IP Analysis](https://imgur.com/a/hXi5MlY)
 
 **Findings:**
 - **Reputation Score:** 0/94 vendors flagged as malicious
