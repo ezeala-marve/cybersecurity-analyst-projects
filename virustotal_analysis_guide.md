@@ -47,7 +47,7 @@ This guide demonstrates practical threat intelligence analysis using VirusTotal,
 ## IP Address Analysis
 
 ### Malicious IP: 185.220.101.134
-![Malicious IP Analysis](https://github.com/Major241/cyber-portfolio/blob/main/images/malicious_ip.png?raw=true)
+![Malicious IP Analysis](https://github.com/Major241/cyber-portfolio/blob/main/images/malicious_ip.png.png?raw=true)
 
 **Findings:**
 - **Reputation Score:** 11/94 vendors flagged as malicious
@@ -60,7 +60,7 @@ This guide demonstrates practical threat intelligence analysis using VirusTotal,
 **Analysis:** This IP exhibits classic C2 server characteristics with multiple confirmed malicious connections. The high number of communicating malware files (58+) and specific ransomware associations indicate active threat infrastructure.
 
 ### Benign IP: 8.8.8.8 (Google DNS)
-![Benign IP Analysis](https://imgur.com/a/hXi5MlY)
+![Benign IP Analysis](https://github.com/Major241/cyber-portfolio/blob/main/images/benign_ip.png.png?raw=true)
 
 **Findings:**
 - **Reputation Score:** 0/94 vendors flagged as malicious
@@ -76,7 +76,7 @@ This guide demonstrates practical threat intelligence analysis using VirusTotal,
 
 ### Malicious File: Mimikatz Trojan
 **SHA-256:** `fb55414848281f804858ce188c3dc659d129e283bd62d58d34f6e6f568feab37`
-![File Analysis](https://github.com/Major241/cyber-portfolio/blob/main/images/malicious_file.png?raw=true)
+![File Analysis](https://github.com/Major241/cyber-portfolio/blob/main/images/malicious_file.png.png?raw=true)
 
 **Findings:**
 - **Detection Ratio:** 63/72 vendors flagged as malicious
@@ -92,7 +92,7 @@ This guide demonstrates practical threat intelligence analysis using VirusTotal,
 
 ### EICAR Test File: Benign but Detected
 **MD5:** `44d88612fea8a8f36de82e1278abb02f`
-![EICAR Analysis](https://github.com/Major241/cyber-portfolio/blob/main/images/EICAR.png?raw=true)
+![EICAR Analysis](https://github.com/Major241/cyber-portfolio/blob/main/images/EICAR.png.png?raw=true)
 
 | What to Look For | Finding | Analysis & Lesson |
 | :--- | :--- | :--- |
@@ -106,7 +106,7 @@ This is the EICAR Anti-Virus Test File, a harmless text string used globally to 
 
 ## URL Analysis
 **URL:** http[:]//x4z9arb[.]cn/4712/
-![URL Analysis](https://github.com/Major241/cyber-portfolio/blob/main/images/malicious_url.png?raw=true)
+![URL Analysis](https://github.com/Major241/cyber-portfolio/blob/main/images/malicious_url.png.png?raw=true)
 
 **Findings:**
 - **Detection Ratio:** 4/97 vendors flagged as malicious
