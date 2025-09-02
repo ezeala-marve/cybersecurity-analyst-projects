@@ -29,7 +29,7 @@ The first step was parsing the raw email headers to find the crucial investigati
 - **`Received` Headers:** The originating mail server's IP address (`18.214.110.142`).
 - **`DKIM-Signature`:** The signing domain (`d=quora.com`) and selector (`s=pigeon`).
 
-> **📸 Screenshot Suggestion:** `[Insert a screenshot here of the email headers, with the key fields (From, Received, DKIM) highlighted.]`
+> **📸 Screenshot Suggestion:** ![Email Headers](https://github.com/Major241/cyber-portfolio/blob/main/images/mail_header.png.png?raw=true)
 
 ### 2. Perform WHOIS Lookup
 **Goal:** Establish domain registration history and ownership credibility.
@@ -43,7 +43,7 @@ CSC Corporate Domains, Inc. (a reputable enterprise-grade registrar)
 - **Registrant:** Legitimate corporate details
 - **Conclusion:** An old, established domain with transparent registration is a strong initial indicator of legitimacy.
 
-> **📸 Screenshot Suggestion:** `[Insert a screenshot of the WHOIS output, highlighting the creation date and registrar.]`
+> **📸 Screenshot Suggestion:** ![Whois quora](https://github.com/Major241/cyber-portfolio/blob/main/images/quora_whois.png.png?raw=true)
 
 ### 3. Execute DNS Record Analysis
 **Goal:** Verify the domain's email security policies and infrastructure.
@@ -86,7 +86,7 @@ Resolve-DnsName pigeon._domainkey.quora.com -Type TXT
 - **DMARC:** Policy published, advising receivers on how to handle failures.
 - **Conclusion:** The domain has a robust email security configuration, and the sending IP matched its authorized SPF records.
 
-> **📸 Screenshot Suggestion:** `[Insert a screenshot of the PowerShell commands and their outputs, showing the successful records.]`
+> **📸 Screenshot:** ![Powershell](https://github.com/Major241/cyber-portfolio/blob/main/images/PS_quora.png.png?raw=true)
 ### 3.5 (Optional) Infrastructure Mapping with DNSDumpster
 **Goal:** Discover related subdomains and "IP neighbors" to identify potential malicious infrastructure clusters.
 
@@ -96,14 +96,14 @@ Resolve-DnsName pigeon._domainkey.quora.com -Type TXT
 - The domain `quora.com` resolves to a large cloud provider (AWS/Cloudflare), which is expected for a major service.
 - The IP neighbors were primarily other legitimate Quora subdomains and services (e.g., `o50.pigeon.quora.com`), with no obvious suspicious patterns. This is consistent with a legitimate enterprise.
 
-**Screenshot Suggestion:** `[Insert screenshot of the DNSDumpster map output for quora.com here]`
+**Screenshot Suggestion:** ![Dnsdumpster](https://github.com/Major241/cyber-portfolio/blob/main/images/dns_dpster.png.png?raw=true)
 
 ### 4. Conduct Reputation Checks
 **Goal:** Cross-reference findings with global threat intelligence.
 - Searched the domain `quora.com` and IP `18.214.110.142` on **VirusTotal** and **AbuseIPDB**.
 - **Finding:** No known malicious history or detections were found across multiple security vendors.
 
-> **📸 Screenshot Suggestion:** `[Insert a screenshot of the clean VirusTotal result for the IP address.]`
+> **📸 Screenshot Suggestion:** ![VirusTotal](https://github.com/Major241/cyber-portfolio/blob/main/images/VT-quora-IP.png.png?raw=true)
 
 ### 5. Formulate a Conclusion
 The collective evidence was evaluated against common indicators of compromise (IOCs):
