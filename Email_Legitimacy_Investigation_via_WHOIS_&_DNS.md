@@ -17,7 +17,7 @@ This project simulates a real Security Operations Center (SOC) investigation to 
 - **Target Domain:** `quora.com`
 - **Sending IP:** `18.214.110.142`
 - **DKIM Signature:** `d=quora.com` | `s=pigeon`
-- **Analysis Date:** (Add the date you did this)
+- **Analysis Date:** `(1-9-2025)`
 
 ## 🧪 Methodology & Workflow
 
