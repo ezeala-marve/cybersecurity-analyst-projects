@@ -20,7 +20,7 @@ The first page you see is your high-level overview and primary pivot point.
     *   **Practical Pivot:** Copy the IP and search it on **VirusTotal**. If other vendors have flagged files or URLs associated with this IP, it's a major red flag. The Autonomous System Number (ASN) reveals the hosting provider, which can often be a known bulletproof host.
 *   **HTTP Server & Redirect Chain:** Shows the web server software (e.g., nginx, Apache) and the full path of any redirects.
 
-![Summary Page of a urlscan.io result](https://placehold.co/600x400/2c3e50/ffffff?text=Summary+Page+Screenshot)
+![Summary Page of a urlscan.io result](https://github.com/Major241/cyber-portfolio/blob/main/images/urlscan_oi.png.png?raw=true)
 *The summary tab provides the critical first look, including the score, verdict, and key pivots like the IP address.*
 
 ### 2. The DOM Tab: The Hidden Structure
@@ -34,7 +34,24 @@ The Document Object Model tab shows the HTML, scripts, and resources after the p
 
 This tab maps out every single hop from the initial URL to the final destination.
 
-*   **Practical Use:** It clearly shows the **submitted URL** (e.g., a URL shortener) vs. the **final landing URL** (the malicious site). This is concrete evidence of deception and lays the entire malicious journey bare.
+*   **Practical Use:** Explanation of Submitted URL vs. Effective URL
+
+The discrepancy between the **Submitted URL** and the **Effective URL** is one of the most common and telling signs of a malicious or deceptive website.
+
+*   **Submitted URL (`https://mub.me/ce1`):** This is the link that was provided to the victim. It's a shortened URL (using the `mub.me` domain, which is a known URL shortener). Attackers use shorteners to:
+    1.  Hide the long, suspicious-looking real URL.
+    2.  Make the link seem more benign or trustworthy.
+    3.  Sometimes, to track how many people click the link.
+
+*   **Effective URL (`http://sqd465qs6d5s.odeatech.com/...`):** This is the **real destination** after the URL shortener and any other redirects have been processed. This is the actual webpage that loads in your browser. This URL is highly suspicious:
+    *   It uses **HTTP** (not secure HTTPS), meaning any data you enter is sent in plain text.
+    *   The subdomain (`sqd465qs6d5s`) is a long, random string, a common technique to avoid blacklisting and create unique URLs for each victim.
+    *   The path (`/RXJaSVZ3NVBhVFhsei9tOTFTcnd4R1RLZmdBVINmYW05`) is also long and random, likely containing unique identifiers for the campaign or target.
+    *   The domain (`odeatech.com`) is being abused. It may have been a legitimate domain that expired and was purchased by attackers, or it may have been compromised.
+
+**In simple terms:** The Submitted URL is the disguised doorway. The Effective URL is the dangerous room you actually walk into. The **Redirects tab** in urlscan.io shows you the exact path you took from the doorway to the room.
+
+---
 
 ### 4. The Behavior Tab: The Action Report
 
