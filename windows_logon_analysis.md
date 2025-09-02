@@ -23,7 +23,7 @@ This event is recorded when a user or process successfully logs on to a system.
   - **Investigation Insight:** A crucial discovery was that **Logon Type 5 events often have no "Source Network Address"**. This is because the logon originates from the Windows Service Control Manager *within* the machine itself, not from the network. This absence of a source IP is normal and expected for this logon type.
   - **Attacker Abuse:** Attackers can install malicious software as a service to maintain persistence. Analysts should investigate service logons from unfamiliar user accounts.
 
-![Screenshot of Logon Type 5 with no Source IP](https://github.com/Major241/cyber-portfolio/blob/main/images/logon_type_5_no_ip.png?raw=true)
+![Screenshot of Logon Type 5 with no Source IP](https://github.com/Major241/cyber-portfolio/blob/main/images/logon_type_5_no_ip.png.png?raw=true)
 *Caption: A Logon Type 5 event. Note the absence of a "Source Network Address," which is expected behavior for a service starting locally.*
 
 #### 2. Special Logon (Event ID 4672)
@@ -56,7 +56,7 @@ This event is related to credential management, like a password being changed or
 - **The Finding:** The log confirmed that the task `MicrosoftsecurityHealth` was executed by the SYSTEM account.
 - **The Limitation:** On this system, the log event did not contain the detailed `Actions` field showing the command-line arguments. This is a common real-world logging issue.
 
-![Screenshot of Event ID 200](https://github.com/Major241/cyber-portfolio/blob/main/images/event_id_200_execution.png?raw=true)
+![Screenshot of Event ID 200]()
 *Caption: A scheduled task execution (200) was logged, but the critical command arguments were not captured in this view.*
 
 #### 2. Correlating with Task Scheduler
@@ -69,7 +69,7 @@ This event is related to credential management, like a password being changed or
   - **`-WindowStyle Hidden`**: This is a key red flag. It is a common adversary tactic to hide the execution of a script from the user.
   - **The Overall Purpose:** The task was configured to run a hidden PowerShell command every time a user logs on, which is a classic technique for establishing persistence.
 
-![Screenshot of the Task Scheduler Actions Tab](https://github.com/Major241/cyber-portfolio/blob/main/task_scheduler_action_lab.png.png?raw=true) 
+![Screenshot of the Task Scheduler Actions Tab](https://github.com/Major241/cyber-portfolio/blob/main/images/task_scheduler_action_lab.png.png?raw=true) 
 *Caption: The Task Scheduler application provides the missing evidence, showing the hidden PowerShell command.*
 
 ---
