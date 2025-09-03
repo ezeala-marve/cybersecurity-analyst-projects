@@ -11,7 +11,7 @@
 *   **HTTPS:** The sealed letter. HTTP is wrapped in a layer of encryption called **TLS/SSL**. The data is encrypted between your browser and the web server, making it gibberish to any interceptor.
 
 #### **The Practical Proof: Sniffing a Plaintext Login**
-*(https://github.com/Major241/cyber-portfolio/blob/main/images/wireshark_http.png.png?raw=true)*
+![HTTP Plain Capture](https://github.com/Major241/cyber-portfolio/blob/main/images/wireshark_http.png.png?raw=true)
 My Wireshark capture proves the theory. The filter `http.request.method == "POST"` instantly located the form submission packet. Expanding the `HTML Form URL Encoded` section revealed all form fields in plaintext.
 
 **The Security Takeaway:** On an open Wi-Fi network, an attacker doesn't need to "hack" anything. They simply run Wireshark, apply the same filter, and harvest credentials from anyone logging in over HTTP. This is a low-skill, high-impact attack.
@@ -34,7 +34,7 @@ It's a simple question-and-answer protocol:
 2.  **Server Response:** "The IP address is `142.251.42.206`."
 
 #### **The Practical Proof: Dissecting the Conversation**
-*(Use your DNS screenshot here)*
+![DNS Capture](https://github.com/Major241/cyber-portfolio/blob/main/images/wireshark_dns.png.jpeg?raw=true)
 Using `ping -c 1 google.com` on a minimal Linux system triggered the DNS lookup. The Wireshark capture, filtered with `port 53`, shows the entire conversation:
 *   **The Query (Question):** A request for the `A` record of `google.com`.
 *   **The Response (Answer):** The answer containing the IP address in the `Answers` section.
