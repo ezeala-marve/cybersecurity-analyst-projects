@@ -13,11 +13,20 @@
 
 Here are the hands-on projects I've completed to practice and demonstrate my skills:
 
-| Project Title | Date | Description | Level |
+## Portfolio Projects
+
+Here are the hands-on projects I’ve completed to practice and demonstrate my cybersecurity skills.
+
+| Project Title | Date | Description | Key Tools & Techniques |
 | :--- | :--- | :--- | :--- |
-| [Suspicious Login Analysis](first_project_suspicious_login.md) | Aug 2025 | Simulated and analyzed a brute-force attack scenario. | Beginner |
-| | | | |
-| *More projects coming soon!* | | | |
+| [Passive DNS Investigation](passive_dns_investigation.md) | Sept 2025 | Investigated a phishing URL by pivoting through Passive DNS data to uncover a malicious infrastructure hub. | VirusTotal, SecurityTrails, WHOIS, Threat Intelligence Analysis |
+| [Phishing Email Analysis](phishing_email_analysis.md) | Aug 2025 | Analysis of a phishing email, examining headers, links, and attachments. | Email Header Analysis, IOC Extraction, Sandboxing |
+| [Suspicious Login Analysis](suspicious_login.md) | Aug 2025 | Simulated and analyzed suspicious login activity on a network. | Windows Event Logs, Hypothesis Testing, Incident Response |
+| [Wireshark DNS & HTTP(S)](wireshark_dns&http(s).md) | Sept 2025 | Captured and analyzed network traffic to understand protocol behavior and identify anomalies. | Wireshark, Protocol Analysis, Packet Inspection |
+| [Windows Logon Analysis](windows_logon_analysis.md) | Aug 2025 | Deep dive into Windows logon types and authentication events. | Windows Event Viewer, Log Analysis, Security Auditing |
+| [Email Legitimacy Investigation](Email_Legitimacy_investigation_via_WHOIS_&_DNS.md) | Sept 2025 | Used WHOIS and DNS tools to verify the legitimacy of a sender's domain. | WHOIS, DNS Lookup, Open-Source Intelligence (OSINT) |
+| [urlscan.io Guide](uriscan_oi.md) | Aug 2025 | A guide on using urlscan.io to safely analyze suspicious websites. | urlscan.io, Web Threat Analysis, Sandboxing |
+| [VirusTotal Analysis Guide](virustotal_analysis_guide.md) | Aug | A guide on leveraging VirusTotal for threat intelligence. | VirusTotal, IOC Analysis, Pivoting |
 
 ## 🛠️ Skills & Tools
 
