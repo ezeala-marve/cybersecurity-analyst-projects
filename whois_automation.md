@@ -88,7 +88,7 @@ In digital investigations, a domain name is often the first clue. The `whois` co
 *   **Goal:** To execute the final script and produce a clean, structured intelligence report.
 *   **The Result:** The script transforms a raw data dump into a structured report in seconds.
 
-![Final Output of the investigate.ps1 script](https://github.com/user-attachments/assets/a55c8e16-8434-4ab7-8d78-ae5ab6359358)
+![Final Output of the investigate.ps1 script](https://github.com/Major241/cyber-portfolio/blob/main/images/auto_whois.png.png?raw=true)
 *The final output of the script.*
 
 ---
@@ -102,7 +102,7 @@ In digital investigations, a domain name is often the first clue. The `whois` co
 4.  **Understand Security Controls:** Knowing *why* execution policy exists is key to managing it properly.
 
 ### **Application in a Real SOC Workflow:**
-An analyst receives an alert for a potential phishing campaign with a link to `fake-login.example.com`.
+An analyst receives an alert for a potential phishing campaign with a link to `secure-login-apple-verify.com`.
 1.  **Triage:** The analyst runs `.\investigate.ps1`.
 2.  **Investigation:** The script returns:
     *   `Creation Date: 2024-09-01` (Major red flag).
