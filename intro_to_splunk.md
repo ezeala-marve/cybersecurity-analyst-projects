@@ -139,10 +139,10 @@ A typical day using this setup involves:
 ## **Screenshots**
 
 ### 📊 Dashboard View
-![Dashboard](https://your-link-here/dashboard.png)
+![Dashboard](https://github.com/Major241/cyber-portfolio/blob/main/images/splunk_dashboard.png.png?raw=true)
 
 ### ⚠️ Alert Configuration
-![Alert](https://your-link-here/alert.png)
+![Alert](https://github.com/Major241/cyber-portfolio/blob/main/images/splunk_alert.png.png?raw=true)
 
 ---
 
