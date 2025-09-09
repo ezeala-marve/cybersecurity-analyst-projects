@@ -1,124 +1,80 @@
-# **Building a WHOIS Automation Tool on Windows: A Cybersecurity Analyst's Journey**
+### **🛠️ Building a WHOIS Automation Tool on Windows**
 
-## **Introduction**
-
-In digital investigations, a domain name is often the first clue. The `whois` command is a fundamental tool for interrogating this clue, providing registration details that can reveal the age, owner, and origin of a potentially malicious site. This project documents the process of overcoming Windows' limitations to install this tool and engineer a PowerShell script that automates the extraction of critical intelligence, replicating a core workflow of a Security Operations Center (SOC) analyst.
+A practical project to overcome Windows limitations by installing the `whois` command and engineering a PowerShell script to automate domain intelligence gathering, replicating a core SOC analyst workflow.
 
 ---
 
-## **Steps: The Installation & Automation Process**
+#### **🔧 The Problem & Solution**
 
-### **Step 1: Establishing Basic Functionality**
-
-*   **Goal:** To execute the basic `whois` command in a Windows command-line environment to retrieve raw domain registration data.
-*   **The Struggle:** On a fresh Windows system, the `whois` command does not exist. Executing it returns a standard error:
-    ```powershell
-    whois : The term 'whois' is not recognized as the name of a cmdlet, function, script file, or operable program.
-    ```
-*   **The Solution:** The utility is available as part of the **Microsoft Sysinternals** suite.
-    1.  **Download:** Source the official `whois.exe` from the [Microsoft Sysinternals website](https://learn.microsoft.com/en-us/sysinternals/downloads/whois).
-    2.  **Installation:** Place the executable in `C:\Windows\`.
-    3.  **Permission Handling:** Click **"Continue"** on the **"Destination Folder Access Denied"** admin prompt.
-    4.  **Final Renaming:** Rename `whois64.exe` to **`whois.exe`**.
-*   **Validation:** The command `whois google.com` now executes successfully.
-
-### **Step 2: Filtering Data for Actionable Intelligence**
-
-*   **Goal:** To transform raw WHOIS output into a concise report of key forensic indicators.
-*   **The Struggle:** The raw output is a massive wall of text, making manual analysis inefficient.
-*   **The Solution:** Use the **pipe operator (`|`)** to filter output with `Select-String`.
-    ```powershell
-    whois google.com | Select-String "Creation Date"
-    ```
-
-### **Step 3: Engineering an Automated Investigation Script**
-
-*   **Goal:** To package the process into a reusable, user-friendly script.
-*   **The Solution - Batch Script (`investigate.bat`):**
-    ```batch
-    @echo off
-    set /p target="Enter a domain or IP: "
-    echo.
-    echo [REPORT FOR %target%]
-    echo ===========================
-    echo.
-    whois %target% | find "Creation Date"
-    whois %target% | find "Registrar"
-    whois %target% | find "Name Server"
-    whois %target% | find "Country"
-    echo.
-    pause
-    ```
-    **Command Breakdown:**
-    *   `@echo off` : Hides the commands, showing only results.
-    *   `set /p target=...` : Prompts user for input and stores it in a variable.
-    *   `echo.` : Prints a blank line for readability.
-    *   `echo [REPORT FOR %target%]` : Prints a title with the target.
-    *   `whois %target% | find "Creation Date"` : The core automation.
-        *   `whois %target%` : Runs the command.
-        *   `|` : The **PIPE**. Feeds output to the next command.
-        *   `find "Creation Date"` : Filters lines containing this phrase.
-    *   `pause` : Waits for a key press before closing the window.
-
-*   **The Evolution - PowerShell Script (`investigate.ps1`):**
-    ```powershell
-    $target = Read-Host "Enter the domain or IP address"
-    $results = whois $target
-    echo "`n[REPORT FOR $target]"
-    echo "===================================================`n"
-    echo "[+] Creation Date:"
-    $results | Select-String "Creation Date" | Get-Unique
-    echo "`n[+] Registrar:"
-    $results | Select-String "Registrar" | Get-Unique
-    echo "`n[+] Name Servers:"
-    $results | Select-String "Name Server" | Get-Unique
-    echo "`n[+] Country:"
-    $results | Select-String "Country" | Get-Unique
-    echo "`n"
-    pause
-    ```
-*   **The Execution Hurdle:** PowerShell's `Restricted` execution policy blocks scripts.
-*   **The Fix:** Relax the policy for the current user safely.
-    ```powershell
-    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-    ```
-
-### **Step 4: Final Output**
-
-*   **Goal:** To execute the final script and produce a clean, structured intelligence report.
-*   **The Result:** The script transforms a raw data dump into a structured report in seconds.
-
-![Final Output of the investigate.ps1 script](https://github.com/Major241/cyber-portfolio/blob/main/images/auto_whois.png.png?raw=true)
-*The final output of the script.*
+*   **The Problem:** Windows lacks a native `whois` command, a crucial tool for domain investigation.
+*   **The Solution:** Source `whois.exe` from **Microsoft Sysinternals**, install it in `C:\Windows\`, and rename it for system-wide access.
 
 ---
 
-## **Lessons Learned & Application in a Real Analyst Workflow**
+#### **⚡ From Manual to Automated Analysis**
 
-### **Lessons Learned:**
-1.  **Persistence is Primary:** Errors are diagnostic tools, not failures.
-2.  **The Power of the Pipe (`|`):** The fundamental concept for data analysis in tools like Splunk and SIEMs.
-3.  **Automation is Force Multiplication:** The analyst's duty is to build systems that automate tasks.
-4.  **Understand Security Controls:** Knowing *why* execution policy exists is key to managing it properly.
+**Manual Command:**
+```powershell
+whois google.com | Select-String "Creation Date"
+```
 
-### **Application in a Real SOC Workflow:**
-An analyst receives an alert for a potential phishing campaign with a link to `secure-login-apple-verify.com`.
-1.  **Triage:** The analyst runs `.\investigate.ps1`.
-2.  **Investigation:** The script returns:
-    *   `Creation Date: 2024-09-01` (Major red flag).
-    *   `Registrar: NameSilo, LLC` (Common for abusive domains).
-    *   `Name Server: ns1.dodgyhosting.ru` (Bulletproof hosting).
-3.  **Decision:** Based on this automated intelligence, the analyst confirms the **true positive** and initiates blocking procedures.
+**Automated PowerShell Script (`investigate.ps1`):**
+```powershell
+$target = Read-Host "Enter the domain or IP address"
+$results = whois $target
+
+echo "`n[REPORT FOR $target]"
+echo "===================================================`n"
+
+echo "[+] Creation Date:"
+$results | Select-String "Creation Date" | Get-Unique
+
+echo "`n[+] Registrar:"
+$results | Select-String "Registrar" | Get-Unique
+
+echo "`n[+] Name Servers:"
+$results | Select-String "Name Server" | Get-Unique
+
+echo "`n[+] Country:"
+$results | Select-String "Country" | Get-Unique
+
+echo "`n"
+pause
+```
 
 ---
 
-## **Tools**
-*   **Microsoft Sysinternals WhoIs**
-*   **Windows PowerShell**
-*   **Notepad**
+#### **🚀 Key Features & Output**
+
+The script automates the extraction of key forensic indicators from a raw WHOIS data dump:
+-   **Creation Date**
+-   **Registrar**
+-   **Name Servers**
+-   **Country**
+
+[![Final Output of the WHOIS Automation Script](https://github.com/Major241/cyber-portfolio/blob/main/images/auto_whois.png.png?raw=true)](https://github.com/Major241/cyber-portfolio/blob/main/images/auto_whois.png.png?raw=true)
+*The final, structured output of the automated investigation script.*
 
 ---
 
-## **Conclusion**
+#### **🔒 Execution Policy Fix**
 
-This project demonstrates that foundational cybersecurity is about mastering core utilities and automating them effectively. The journey from a `"command not found"` error to an automated investigation script is the essence of practical, hands-on skill development.
+To run the script, you must first allow PowerShell to execute local scripts:
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+---
+
+#### **✅ Practical SOC Application**
+
+This tool replicates a real analyst's workflow for triaging phishing domains. A newly registered domain with a dodgy registrar and bulletproof hosting, as revealed by the script, is a major red flag for confirming malicious activity.
+
+---
+
+#### **🛠️ Tools Used**
+-   Microsoft Sysinternals WhoIs
+-   Windows PowerShell
+-   Notepad++ / VS Code
+
+**Source:** [Microsoft Sysinternals WhoIs Download](https://learn.microsoft.com/en-us/sysinternals/downloads/whois)
