@@ -1,5 +1,5 @@
 ### **Project: Forensic Analysis of a Phishing Email**
-**Date: February 26, 2024 | Level: Beginner | Category: Digital Forensics & Incident Response (DFIR)**
+**Date: August 26, 2025 | Level: Beginner | Category: Digital Forensics & Incident Response (DFIR)**
 
 ## Objective
 To perform a hands-on forensic analysis of a phishing email by examining its headers to identify key Indicators of Compromise (IOCs) and understand the attack vector.
