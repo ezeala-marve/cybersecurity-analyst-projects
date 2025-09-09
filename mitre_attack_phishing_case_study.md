@@ -1,57 +1,45 @@
-🎯 **Case Study: Deconstructing a Phishing Attack with MITRE ATT&CK**
+### **🎯 Case Study: Deconstructing a Phishing Attack with MITRE ATT&CK**
 
-🔹 **Objective**
-
-Simulate a phishing email attack, collect forensic evidence, and map the adversary behaviors to the MITRE ATT&CK framework using real-world techniques.
+#### 🔹 Objective
+Simulate a phishing email attack, collect forensic evidence, and map the adversary behaviors to the MITRE ATT&CK framework.
 
 ---
 
-🔹 **Investigation Steps**
+#### 🔹 Tools Used
+*   **Canarytokens:** Generated trackable URL and captured forensic data.
+*   **MITRE ATT&CK Navigator:** Mapped techniques to the framework.
+*   **Browser & Email Client:** Simulated user interaction.
 
-	1.	Setup & Simulation
+---
 
-	•	Generated a trackable phishing URL with Canarytokens.
+#### 🔹 Investigation Steps
 
-	•	Crafted a phishing email and executed a controlled click to trigger an alert.
+**1. Setup & Simulation**
+*   Generated a trackable phishing URL using Canarytokens.
+*   Crafted a phishing email and executed a controlled click to trigger the alert.
+*   `[Screenshot: Canarytoken Generation]($image_link_1)`
 
-	•	![canarytokens](Canarytokens interface showing the generated URL)
+**2. Evidence Collection**
+*   Captured timestamp, source IP, and user-agent data from the alert.
+*   `[Screenshot: Forensic Alert Data]($image_link_2)`
 
-	2.	Evidence Collection
+**3. ATT&CK Mapping**
+Mapped the attack lifecycle to the following techniques:
+*   **Resource Development:** T1583 (Acquire Infrastructure)
+*   **Initial Access:** T1566.002 (Spearphishing Link)
+*   **Execution:** T1204.002 (User Execution)
+*   **Command & Control:** T1102 (Web Service)
+*   **Collection:** T1114.003 (Email Collection)
+*   **Impact:** T1498 (Network Denial of Service)
+*   `[Screenshot: ATT&CK Navigator Layer]($image_link_3)`
 
-	•	Captured timestamp, IP address, and browser details from the triggered beacon.
+**4. Visualization**
+*   Documented the attack flow: `Email → Malicious Link → User Click → C2 Beacon → Data Collection`
 
-	•	Validated adversary behavior using forensic logs.
+---
 
-	•	📸 Screenshot: Alert output (IP, timestamp, browser).
-
-	3.	ATT&CK Mapping
-
-	•	Resource Development → T1583 (Acquire Infrastructure)
-
-	•	Initial Access → T1566.002 (Phishing: Spearphishing Link)
-
-	•	Execution → T1204.001 (User Execution: Malicious Link)
-
-	•	Command & Control → T1102 (Web Service)
-
-	•	Collection → T1114 (Email Collection)
-
-	•	Impact → T1498 (Network Denial of Service)
-
-	•	📸 Screenshot: ATT&CK Navigator showing highlighted techniques.
-
-	4.	Visualization
-
-	•	Created a flow diagram of the phishing lifecycle.
-
-	•	Email → Malicious Link → User Click → C2 Beacon → Data Collection
-
-🔹 **Outcome**
-
-This project transformed a theoretical framework into a hands-on investigative workflow. By simulating a phishing lifecycle and mapping each step to MITRE ATT&CK, I demonstrated how analysts can:
-
-	•	Translate raw evidence into standardized threat language.
-
-	•	Visualize adversary behavior across the kill chain.
-
-	•	Use ATT&CK to guide hunting and strengthen SOC defenses.
+#### 🔹 Outcome
+This project transformed MITRE ATT&CK from theory into practice. By simulating an attack and mapping it to the framework, I demonstrated how to:
+*   Translate evidence into standardized threat language.
+*   Visualize adversary behavior across the kill chain.
+*   Use ATT&CK to guide detection engineering and threat hunting.
