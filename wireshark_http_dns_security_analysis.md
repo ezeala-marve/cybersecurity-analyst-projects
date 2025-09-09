@@ -38,6 +38,7 @@ Use these Wireshark filters to detect malicious activity:
 # Manual DNS lookup for investigation
 dig @8.8.8.8 google.com A
 dig google.com TXT
+nslookup google.com
 
 # Lightweight packet capture for servers
 sudo tcpdump -i eth0 -w dns_capture.pcap port 53
