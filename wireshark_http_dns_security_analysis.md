@@ -11,14 +11,14 @@ A hands-on Wireshark analysis demonstrating the critical security risks of unenc
 *   **Proof:** Using the filter `http.request.method == "POST"`, I captured a login request and extracted the credentials directly from the packet.
 *   **Takeaway:** Without HTTPS (TLS), credentials are easily stolen on open networks.
 
-[![HTTP Plaintext Capture]()
+![HTTP Plaintext Capture](https://github.com/Major241/cyber-portfolio/blob/main/images/wireshark_http.png.png?raw=true)
 
 **2. DNS: The Covert Threat Channel**
 *   **Theory:** Attackers abuse DNS for data exfiltration and command-and-control (C2).
 *   **Proof:** Analyzed DNS queries (`port 53`) to understand normal vs. malicious patterns.
 *   **Takeaway:** Monitoring DNS is crucial for early threat detection.
 
-![DNS Analysis]()
+![DNS Analysis](https://github.com/Major241/cyber-portfolio/blob/main/images/wireshark_dns.png.jpeg?raw=true)
 
 ---
 
