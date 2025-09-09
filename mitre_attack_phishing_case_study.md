@@ -17,11 +17,11 @@ Simulate a phishing email attack, collect forensic evidence, and map the adversa
 **1. Setup & Simulation**
 *   Generated a trackable phishing URL using Canarytokens.
 *   Crafted a phishing email and executed a controlled click to trigger the alert.
-*   `[Screenshot: Canarytoken Generation]($image_link_1)`
+*   ![Screenshot: Canarytoken Generation](https://github.com/Major241/cyber-portfolio/blob/main/images/canarytoken.png.png?raw=true)
 
 **2. Evidence Collection**
 *   Captured timestamp, source IP, and user-agent data from the alert.
-*   `[Screenshot: Forensic Alert Data]($image_link_2)`
+*   ![Screenshot: Forensic Alert Data](https://github.com/Major241/cyber-portfolio/blob/main/images/mail.png.png?raw=true)
 
 **3. ATT&CK Mapping**
 Mapped the attack lifecycle to the following techniques:
@@ -31,7 +31,7 @@ Mapped the attack lifecycle to the following techniques:
 *   **Command & Control:** T1102 (Web Service)
 *   **Collection:** T1114.003 (Email Collection)
 *   **Impact:** T1498 (Network Denial of Service)
-*   `[Screenshot: ATT&CK Navigator Layer]($image_link_3)`
+*   ![Screenshot: ATT&CK Navigator Layer](https://github.com/Major241/cyber-portfolio/blob/main/images/mitre_mapping.png.png?raw=true)
 
 **4. Visualization**
 *   Documented the attack flow: `Email → Malicious Link → User Click → C2 Beacon → Data Collection`
