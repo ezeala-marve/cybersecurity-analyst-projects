@@ -68,7 +68,7 @@ nmap -Pn -F scanme.nmap.org
 **Screenshot of the PowerShell output:**
 *(The screenshot below shows the results of the `nmap -sS -sV -O scanme.nmap.org` command, which provided the service and OS details used in this report.)*
 
-![Nmap Scan Results](screenshots/nmap_scan_results.png)
+![Nmap Scan Results](https://github.com/Major241/cyber-portfolio/blob/main/images/nmap.png.png?raw=true)
 
 **Important Disclaimer:** Nmap's vuln scripts map service/version identifiers to known CVEs and emit *potential* matches. This indicates the presence of a version associated with a known vulnerability, not confirmed exploitability in the specific target environment. **This finding was on a dedicated test server.** Always conduct follow-up validation in a controlled, authorized environment before declaring a confirmed vulnerability.
 
@@ -85,3 +85,8 @@ This report is a actionable hardening guide. The immediate actions would be to:
 4.  **Monitor:** Alert on Nmap scan patterns (`-sS`, `-sV`) as potential reconnaissance activity.
 
 This exercise highlights how the same information is used to both launch attacks and build defenses.
+
+## 💡 Key Takeaways & Conclusion
+This hands-on session was a powerful reminder that effective cybersecurity is built on a foundation of rigorous information gathering. The transition from a simple port scan to identifying a specific software version and its associated CVE is where the real value of a tool like Nmap is unlocked.
+
+The process underscored a critical duality: the same information that empowers an attacker to launch a targeted exploit enables a defender to patch a vulnerability and shrink their attack surface. Mastering these fundamental reconnaissance techniques is the first step in thinking like both a red teamer and a blue teamer, ultimately leading to more robust and resilient security postures.
