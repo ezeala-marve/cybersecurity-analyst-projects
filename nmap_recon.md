@@ -85,6 +85,9 @@ This report is a actionable hardening guide. The immediate actions would be to:
 4.  **Monitor:** Alert on Nmap scan patterns (`-sS`, `-sV`) as potential reconnaissance activity.
 
 This exercise highlights how the same information is used to both launch attacks and build defenses.
+#Cybersecurity #Nmap #Reconnaissance #PenTesting #InfoSec #VulnerabilityScanning #NetworkSecurity #RedTeam #BlueTeam #LearnCybersecurity
+
+---
 
 ## 💡 Key Takeaways & Conclusion
 This hands-on session was a powerful reminder that effective cybersecurity is built on a foundation of rigorous information gathering. The transition from a simple port scan to identifying a specific software version and its associated CVE is where the real value of a tool like Nmap is unlocked.
