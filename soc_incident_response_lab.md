@@ -57,7 +57,23 @@ Each lab is contained in its own directory and includes:
 - **Response:** Purged the malicious email from all mailboxes and enforced a password reset for the vulnerable account.
 
 **Key Takeaway:** Proactive credential hygiene is as important as detecting the initial phishing email.
+## 📋 Example Incident Ticket: INC-2023-1027-001
 
+**Title:** Suspicious VPN Login Activity for svc_jenkins
+**Status:** Resolved
+**Priority:** High
+**Assigned Analyst:** Marvel
+
+| Field | Details |
+| :--- | :--- |
+| **Description** | SIEM Alert HV001 triggered at 14:05 UTC. 32 failed login attempts from 203.0.113.55 to svc_jenkins account on VPN gateway, followed by a successful authentication. |
+| **Investigation Timeline** | `14:07 UTC` - Alert acknowledged. Investigation begun. <br> `14:09 UTC` - AD query: `svc_jenkins` is a privileged service account. <br> `14:11 UTC` - Threat Intel: Source IP `203.0.113.55` is confirmed malicious. <br> `14:13 UTC` - Firewall query: Found outbound C2 connection from VPN IP `10.8.0.17` to known C2 infrastructure. <br> `14:15 UTC` - **CONTAINMENT: Disabled user `svc_jenkins`. Blocked IP `10.8.0.17` at the firewall.** <br> `14:18 UTC` - **ERADICATION: Reset password for `svc_jenkins` and enforced 90-day expiration policy.** |
+| **Assets Involved** | **User:** `svc_jenkins` <br> **Source IP:** `203.0.113.55` <br> **Host:** `vpn.corporate[.]com` |
+| **Findings & Analysis** | Privileged service account was compromised via a brute-force attack from a known malicious IP. The attacker established a C2 channel and exfiltrated approximately 15MB of data. |
+| **Containment Actions** | 1. Disabled compromised service account `svc_jenkins`. <br> 2. Blocked malicious VPN-assigned IP `10.8.0.17` at the network perimeter. |
+| **Eradication & Recovery** | 1. Reset password for the account to a new strong credential. <br> 2. Removed "PasswordNeverExpires" flag and set a 90-day expiration policy. |
+| **Root Cause** | Successful brute-force attack against a privileged service account due to a static, never-expiring password. |
+| **Resolution** | Contained active attack, eradicated the root cause by resetting credentials, and initiated a policy change to implement MFA for all VPN logins. |
 ## 🚀 How to Use This Lab
 
 1.  Review the `alert.md` for a specific incident.
