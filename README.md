@@ -26,7 +26,7 @@ Here are the hands-on projects I’ve completed to practice and demonstrate my c
 | [urlscan.io Guide](uriscan_oi.md) | Aug 2025 | A guide on using urlscan.io to safely analyze suspicious websites. | urlscan.io, Web Threat Analysis, Sandboxing |
 | [VirusTotal Analysis Guide](virustotal_analysis_guide.md) | Aug | A guide on leveraging VirusTotal for threat intelligence. | VirusTotal, IOC Analysis, Pivoting |
 
-**View All Projects:** [📁 Project Directory](./)
+**View All Projects:** [ Project Directory](./)
 
 
 ## 🛠️ Technical Skills
