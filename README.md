@@ -28,11 +28,30 @@ Here are the hands-on projects I’ve completed to practice and demonstrate my c
 | [urlscan.io Guide](uriscan_oi.md) | Aug 2025 | A guide on using urlscan.io to safely analyze suspicious websites. | urlscan.io, Web Threat Analysis, Sandboxing |
 | [VirusTotal Analysis Guide](virustotal_analysis_guide.md) | Aug | A guide on leveraging VirusTotal for threat intelligence. | VirusTotal, IOC Analysis, Pivoting |
 
-## 🛠️ Skills & Tools
+**View All Projects:** [📁 Project Directory](./)
 
-- **Tools:** Wireshark, VMware, Windows Event Viewer, Linux command line
-- **Skills:** Log Analysis, Threat Hypothesis, Basic Incident Response
 
+## 🛠️ Technical Skills
+
+| Category | Skills & Tools |
+| :--- | :--- |
+| **🛡️ Defense & Analysis** | SIEM Basics (Splunk), Incident Response, Log Analysis (Windows Event Log, DNS) |
+| **🔍 Threat Intelligence** | VirusTotal, AlienVault OTX, WHOIS, DNS Lookup, Passive DNS, URLScan.io |
+| **💻 Platforms & OS** | Windows, Linux (CLI), VMware Virtualization |
+| **📜 Frameworks** | MITRE ATT&CK, Cyber Kill Chain, Diamond Model |
+
+---
+
+## 📫 Let's Connect
+
+I'm always open to discussing cybersecurity, collaboration opportunities, or new ideas.
+
+- **Email:** [marvellousezeala@gmail.com](mailto:marvellousezeala@gmail.com)
+- **LinkedIn:** [//www.linkedin.com/in/marvellous-ezeala-](www.linkedin.com/in/ezeala-marvellous-051a63308) 
+- **GitHub:** [@Major241](https://github.com/Major241)
+
+---
+**License:** This portfolio is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 ---
 
 > This portfolio is a constant work in progress, documenting my growth and learning. Thank you for visiting!
