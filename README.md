@@ -1,13 +1,11 @@
-# 👋 Welcome to My Cyber Security Portfolio
+Hello! I’m Ezeala Marvellous (Major241), a cybersecurity professional passionate about Digital Forensics & Incident Response (DFIR), Threat Analysis, and Security Operations. This repository showcases my hands-on projects, research, and practical experience in detecting, investigating, and responding to cyber threats.
 
-**Hello! I'm Ezeala Marvellous/Major241, an aspiring cyber security enthusiast.** This repository is a collection of my projects, notes, and learning journey in the world of information security.
-
-## 🚀 About Me
-
-- 🔭 I’m currently learning: **The fundamentals of cyber security, including threat detection and digital forensics.**
-- 🌱 My interests include: **DFIR (Digital Forensics & Incident Response), threat analysis, and security operations.**
-- 📫 How to reach me: **marvellousezeala@gmail.com**
-- ⚡ Fun fact: **I’m always eager to learn and love a good challenge**
+🚀 About Me
+	•	🔭 Skilled in: Threat detection, digital forensics, incident response workflows, and security monitoring.
+	•	🌱 Current focus: Advancing expertise in SOC operations, malware analysis, and threat intelligence.
+	•	📂 This portfolio: A curated collection of my technical projects, write-ups, and security labs that demonstrate practical, job-ready capabilities.
+	•	📫 Reach me at: marvellousezeala@gmail.com
+	•	⚡ Motto: Always curious, always improving, always ready to respond.
 
 ## 📂 Portfolio Projects
 
@@ -54,4 +52,4 @@ I'm always open to discussing cybersecurity, collaboration opportunities, or new
 **License:** This portfolio is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 ---
 
-> This portfolio is a constant work in progress, documenting my growth and learning. Thank you for visiting!
+> Each project here highlights my ability to investigate, analyze, and respond to threats with a professional approach. My portfolio reflects not just learning, but hands-on experience that is directly applicable to SOC and cybersecurity roles.
