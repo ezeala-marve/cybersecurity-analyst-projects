@@ -87,7 +87,7 @@ Resolve-DnsName pigeon._domainkey.quora.com -Type TXT
 - **Conclusion:** The domain has a robust email security configuration, and the sending IP matched its authorized SPF records.
 
 > **📸 Screenshot:** ![Powershell](https://github.com/Major241/cyber-portfolio/blob/main/images/PS_quora.png.png?raw=true)
-### 3.5 (Optional) Infrastructure Mapping with DNSDumpster
+### 3.5 Infrastructure Mapping with DNSDumpster
 **Goal:** Discover related subdomains and "IP neighbors" to identify potential malicious infrastructure clusters.
 
 **Process:** I submitted the target domain to `dnsdumpster.com` to visualize its hosting environment and discover other domains sharing the same IP space.
