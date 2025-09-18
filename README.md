@@ -1,13 +1,13 @@
 Hello! I’m Ezeala Marvellous (Major241), a cybersecurity professional passionate about Digital Forensics & Incident Response (DFIR), Threat Analysis, and Security Operations. This repository showcases my hands-on projects, research, and practical experience in detecting, investigating, and responding to cyber threats.
 
 🚀 About Me
-	•	🔭 Skilled in: Threat detection, digital forensics, incident response workflows, and security monitoring.
-	•	🌱 Current focus: Advancing expertise in SOC operations, malware analysis, and threat intelligence.
-	•	📂 This portfolio: A curated collection of my technical projects, write-ups, and security labs that demonstrate practical, job-ready capabilities.
-	•	📫 Reach me at: marvellousezeala@gmail.com
-	•	⚡ Motto: Always curious, always improving, always ready to respond.
+	•	 Skilled in: Threat detection, digital forensics, incident response workflows, and security monitoring.
+	•	 Current focus: Advancing expertise in SOC operations, malware analysis, and threat intelligence.
+	•	 This portfolio: A curated collection of my technical projects, write-ups, and security labs that demonstrate practical, job-ready capabilities.
+	•	 Reach me at: marvellousezeala@gmail.com
+	•	 Motto: Always curious, always improving, always ready to respond.
 
-## 📂 Portfolio Projects
+##  Portfolio Projects
 
 Here are the hands-on projects I've completed to practice and demonstrate my skills:
 
@@ -33,14 +33,14 @@ Here are the hands-on projects I’ve completed to practice and demonstrate my c
 
 | Category | Skills & Tools |
 | :--- | :--- |
-| **🛡️ Defense & Analysis** | SIEM Basics (Splunk), Incident Response, Log Analysis (Windows Event Log, DNS) |
-| **🔍 Threat Intelligence** | VirusTotal, AlienVault OTX, WHOIS, DNS Lookup, Passive DNS, URLScan.io |
-| **💻 Platforms & OS** | Windows, Linux (CLI), VMware Virtualization |
-| **📜 Frameworks** | MITRE ATT&CK, Cyber Kill Chain, Diamond Model |
+| **Defense & Analysis** | SIEM Basics (Splunk), Incident Response, Log Analysis (Windows Event Log, DNS) |
+| **Threat Intelligence** | VirusTotal, AlienVault OTX, WHOIS, DNS Lookup, Passive DNS, URLScan.io |
+| **Platforms & OS** | Windows, Linux (CLI), VMware Virtualization |
+| **Frameworks** | MITRE ATT&CK, Cyber Kill Chain, Diamond Model |
 
 ---
 
-## 📫 Let's Connect
+##  Let's Connect
 
 I'm always open to discussing cybersecurity, collaboration opportunities, or new ideas.
 
