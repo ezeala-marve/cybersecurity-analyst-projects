@@ -1,12 +1,8 @@
 Hello! I’m Ezeala Marvellous (Major241), a cybersecurity professional passionate about Digital Forensics & Incident Response (DFIR), Threat Analysis, and Security Operations. This repository showcases my hands-on projects, research, and practical experience in detecting, investigating, and responding to cyber threats.
 
-    About Me
+## **About me**
 
-	•   Skilled in: Threat detection, digital forensics, incident response workflows, and security monitoring.
-	•	Current focus: Advancing expertise in SOC operations, malware analysis, and threat intelligence.
-	•	This portfolio: A curated collection of my technical projects, write-ups, and security labs that demonstrate practical, job-ready capabilities.
-	•	Reach me at: marvellousezeala@gmail.com
-    •	Motto: Always curious, always improving, always ready to respond.
+I am skilled in threat detection, digital forensics, incident response workflows, and security monitoring, with a current focus on advancing my expertise in SOC operations, malware analysis, and threat intelligence. This portfolio showcases a curated collection of technical projects, write-ups, and security labs that highlight my practical, job-ready capabilities. Driven by the motto *“Always curious, always improving, always ready to respond,”* I continuously seek growth and new challenges in cybersecurity. You can reach me at **[marvellousezeala@gmail.com](mailto:marvellousezeala@gmail.com)**.
 
 
 ## Portfolio Projects
