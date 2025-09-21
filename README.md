@@ -39,7 +39,7 @@ Here are the hands-on projects I’ve completed to practice and demonstrate my c
 I'm always open to discussing cybersecurity, collaboration opportunities, or new ideas.
 
 - **Email:** [marvellousezeala@gmail.com](mailto:marvellousezeala@gmail.com)
--  **LinkedIn:** [Ezeala Marvellous](https://www.linkedin.com/in/ezeala-marvellous-051a63308)
+-  **LinkedIn:** [Ezeala Marvellous](https://www.linkedin.com/in/marve-cybersecurity)
 - **GitHub:** [@Major241](https://github.com/Major241)
 
 ---
